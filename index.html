@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala & Tamil Nadu Tourism - Exceptional South India Tours</title>
+  <meta name="description" content="Discover the finest destinations in Kerala and Tamil Nadu. 10+ years experience planning customized trips for 1 to 20 guests. Phone: 7907227256, Email: kusreekuttan133@gmail.com.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Glass Navbar -->
+  <div class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="logo">
+        <img class="logo-icon" src="images/712bee1a-cb12-48ac-aac0-cd2cb7968914 (1).png" alt="Logo">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="destination.html" class="nav-link">Destination</a></li>
+        <li><a href="tour.html" class="nav-link">Tour</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="https://wa.me/917907227256?text=Hello!%20I%20would%20like%20to%20enquire%20about%20travel%20packages%20in%20Kerala%20and%20Tamil%20Nadu." target="_blank" class="whatsapp-nav-btn">
+          <i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i>
+          <span>WhatsApp Us</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button>
+    <ul class="drawer-links">
+      <li><a href="index.html" class="drawer-link">Home</a></li>
+      <li><a href="destination.html" class="drawer-link">Destination</a></li>
+      <li><a href="tour.html" class="drawer-link">Tour</a></li>
+      <li><a href="about.html" class="drawer-link">About Us</a></li>
+      <li><a href="contact.html" class="drawer-link">Contact Us</a></li>
+    </ul>
+    <a href="https://wa.me/917907227256?text=Hello!%20I%20would%20like%20to%20enquire%20about%20travel%20packages." target="_blank" class="whatsapp-inquire-btn" style="margin-top:auto;">
+      <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Extraordinary natural and cultural charm</h1>
+      <p class="hero-subtitle">Exploring Kerala and Tamil Nadu's natural beauty and rich heritage with us.</p>
+
+      <!-- Glassmorphism Filter Search Pill (1 to 20 Guests) -->
+      <form class="search-widget" id="heroSearchForm">
+        <div class="search-field">
+          <i class="fa-solid fa-location-dot search-field-icon"></i>
+          <div class="search-select-wrapper">
+            <span class="search-label">Zone / State</span>
+            <div class="custom-select-wrapper" id="customZoneSelect">
+              <div class="custom-select-trigger">Kerala & Tamil Nadu</div>
+              <ul class="custom-select-options">
+                <li class="custom-select-option" data-value="all">Kerala & Tamil Nadu</li>
+                <li class="custom-select-option" data-value="kerala">Kerala State</li>
+                <li class="custom-select-option" data-value="tamilnadu">Tamil Nadu State</li>
+              </ul>
+            </div>
+            <select class="search-select" id="zoneSelect" style="display:none;">
+              <option value="all">Kerala & Tamil Nadu</option>
+              <option value="kerala">Kerala State</option>
+              <option value="tamilnadu">Tamil Nadu State</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="search-divider"></div>
+
+        <div class="search-field">
+          <i class="fa-regular fa-user search-field-icon"></i>
+          <div class="search-select-wrapper">
+            <span class="search-label">Guests (1 to 20)</span>
+            <div class="custom-select-wrapper" id="customGuestsSelect">
+              <div class="custom-select-trigger">2 Guests</div>
+              <ul class="custom-select-options">
+                <li class="custom-select-option" data-value="1 Guest">1 Guest</li>
+                <li class="custom-select-option" data-value="2 Guests">2 Guests</li>
+                <li class="custom-select-option" data-value="3-5 Guests">3 - 5 Guests</li>
+                <li class="custom-select-option" data-value="6-10 Guests">6 - 10 Guests</li>
+                <li class="custom-select-option" data-value="11-15 Guests">11 - 15 Guests</li>
+                <li class="custom-select-option" data-value="16-20 Guests">16 - 20 Guests</li>
+              </ul>
+            </div>
+            <select class="search-select" id="guestsSelect" style="display:none;">
+              <option value="1 Guest">1 Guest</option>
+              <option value="2 Guests" selected>2 Guests</option>
+              <option value="3-5 Guests">3 - 5 Guests</option>
+              <option value="6-10 Guests">6 - 10 Guests</option>
+              <option value="11-15 Guests">11 - 15 Guests</option>
+              <option value="16-20 Guests">16 - 20 Guests</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="search-btn" id="searchSubmitBtn">Search</button>
+      </form>
+    </div>
+
+    <!-- Stats Overlay Row -->
+    <div class="hero-stats-container">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Total Visitors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Of Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1-20</div>
+          <div class="stat-label">Guests Group Capacity</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5.0</div>
+          <div class="stat-label"><i class="fa-solid fa-star" style="color:#F59E0B; margin-right:4px;"></i>Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: Featured Destinations -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <span class="section-tag">Best Destinations</span>
+      <div class="section-header-flex">
+        <h2 class="section-title">South Indian tourism</h2>
+        <p class="section-desc">Extraordinary natural beauty to enjoy the rich culture, backwaters, tea hills, and ancient temples across Kerala and Tamil Nadu.</p>
+      </div>
+
+      <div class="grid-destinations">
+        <!-- Munnar -->
+        <div class="destination-card">
+          <img src="images/hero_bg.jpg" alt="Munnar Tea Hills">
+          <div class="destination-overlay">
+            <span class="state-badge">Kerala</span>
+            <span class="destination-location">Munnar, Idukki District</span>
+            <h3 class="destination-name">Munnar Hill Station Tour</h3>
+            <p class="destination-desc-text">Misty tea plantations, wildlife parks, and crisp mountain air in God's Own Country.</p>
+          </div>
+        </div>
+
+        <!-- Alleppey -->
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80" alt="Alleppey Backwaters">
+          <div class="destination-overlay">
+            <span class="state-badge">Kerala</span>
+            <span class="destination-location">Alleppey (Alappuzha)</span>
+            <h3 class="destination-name">Alleppey Houseboat Cruise</h3>
+            <p class="destination-desc-text">Glide through serene palm-fringed canals on a luxury wooden houseboat.</p>
+          </div>
+        </div>
+
+        <!-- Ooty -->
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1200&q=80" alt="Ooty Hills">
+          <div class="destination-overlay">
+            <span class="state-badge">Tamil Nadu</span>
+            <span class="destination-location">Ooty, Nilgiris</span>
+            <h3 class="destination-name">Ooty Queen of Hills Tour</h3>
+            <p class="destination-desc-text">Botanical gardens, pine forests, Nilgiri toy train ride, and tranquil lakes.</p>
+          </div>
+        </div>
+
+        <!-- Madurai -->
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80" alt="Madurai Meenakshi Temple">
+          <div class="destination-overlay">
+            <span class="state-badge">Tamil Nadu</span>
+            <span class="destination-location">Madurai Temple City</span>
+            <h3 class="destination-name">Madurai Cultural & Heritage Tour</h3>
+            <p class="destination-desc-text">Iconic ancient architecture of Meenakshi Amman Temple and rich heritage.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-btn-row" style="margin-top: 40px;">
+        <a href="destination.html" class="btn-black-pill">View All Destinations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Feature Highlight ("One click for you") -->
+  <section class="section" id="services" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="feature-wrapper">
+        <div class="feature-media">
+          <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=1200&q=80" alt="Kerala Travel">
+          <div class="feature-floating-bar">
+            <span>📍 Kerala & Tamil Nadu</span>
+            <span>👤 1-20 Guests</span>
+            <a href="https://wa.me/917907227256" target="_blank" style="background:#25D366; color:#FFF; padding:4px 12px; border-radius:99px; font-weight:700;">Inquire</a>
+          </div>
+        </div>
+
+        <div class="feature-content">
+          <span class="section-tag">Travel Service</span>
+          <h2 class="section-title">One click for you</h2>
+
+          <div class="feature-list">
+            <div class="feature-item active">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-compass"></i>
+              </div>
+              <div class="feature-info">
+                <h4>Find your destination</h4>
+                <p>Choose your dream vacation destination in Kerala and Tamil Nadu according to your wishes, budget, and travel style with ease.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-van-shuttle"></i>
+              </div>
+              <div class="feature-info">
+                <h4>Transport for 1-20 Guests</h4>
+                <p>Comfortable AC sedans, SUVs, and Tempo Travellers suitable for couples, families, and groups up to 20 people.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="feature-info">
+                <h4>Flexible Custom Plans</h4>
+                <p>Add, remove, replace, or re-plan destinations anytime based on weather, local recommendations, and your convenience.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="feature-info">
+                <h4>Direct WhatsApp Support</h4>
+                <p>Get instant itinerary quotes, hotel options, and 24/7 travel assistance directly on your phone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Tour Packages (NO PRICES, NO DAYS MENTIONED - WHATSAPP INQUIRY ONLY) -->
+  <section class="section" id="packages">
+    <div class="container">
+      <span class="section-tag">Tour Packages</span>
+      <div class="section-header-flex">
+        <h2 class="section-title">Our tourist packages</h2>
+        <p class="section-desc">Explore curated travel itineraries across Kerala and Tamil Nadu with dedicated vehicle and hotel arrangements.</p>
+      </div>
+
+      <div class="grid-packages">
+        <!-- Package 1 -->
+        <div class="package-card">
+          <div class="package-img-wrapper">
+            <img src="images/hero_bg.jpg" alt="Munnar & Alleppey Tour">
+            <span class="badge-rating"><i class="fa-solid fa-star" style="color:#F59E0B;"></i> 4.9</span>
+          </div>
+          <div class="package-content">
+            <span class="package-location-tag">Kerala</span>
+            <h3 class="package-title">Munnar Tea Hills & Alleppey Houseboat</h3>
+            <p class="package-desc">Munnar tea plantations, Cheeyappara waterfalls, Mattupetty dam, and luxury backwater houseboat cruise.</p>
+            <button onclick="inquireWhatsAppPackage('Munnar & Alleppey Houseboat Tour', 'Kerala')" class="whatsapp-inquire-btn">
+              <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card">
+          <div class="package-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1200&q=80" alt="Ooty & Kodaikanal Tour">
+            <span class="badge-rating"><i class="fa-solid fa-star" style="color:#F59E0B;"></i> 4.8</span>
+          </div>
+          <div class="package-content">
+            <span class="package-location-tag">Tamil Nadu</span>
+            <h3 class="package-title">Ooty & Kodaikanal Hill Station Tour</h3>
+            <p class="package-desc">Nilgiri mountain train, Doddabetta peak, Ooty lake, Kodaikanal pillar rocks, and Coaker's walk valley views.</p>
+            <button onclick="inquireWhatsAppPackage('Ooty & Kodaikanal Hill Station Tour', 'Tamil Nadu')" class="whatsapp-inquire-btn">
+              <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card">
+          <div class="package-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80" alt="Rameswaram & Madurai Tour">
+            <span class="badge-rating"><i class="fa-solid fa-star" style="color:#F59E0B;"></i> 4.9</span>
+          </div>
+          <div class="package-content">
+            <span class="package-location-tag">Tamil Nadu & Kerala</span>
+            <h3 class="package-title">Heritage Pilgrimage & Temple Circuit</h3>
+            <p class="package-desc">Madurai Meenakshi Temple, Rameswaram Pamban Bridge, Dhanushkodi beach, and Kanyakumari sunset memorial.</p>
+            <button onclick="inquireWhatsAppPackage('Heritage Temple Circuit Tour', 'Tamil Nadu & Kerala')" class="whatsapp-inquire-btn">
+              <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-btn-row">
+        <a href="tour.html" class="btn-black-pill">View All Tour Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Customer Reviews (NO PERSON IMAGE) -->
+  <section class="section" style="background: #FFFFFF;">
+    <div class="container">
+      <span class="section-tag">Customer Reviews</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">What our travelers say</h2>
+
+      <div class="testimonial-wrapper">
+        <!-- Review Slider Display (No Avatar Image) -->
+        <div class="testimonial-card">
+          <div class="testimonial-user-box">
+            <h4 class="user-name" id="testiName">Ananya Nair</h4>
+            <span class="user-role" id="testiRole">Kochi, Kerala</span>
+            <div class="review-rating-stars" id="testiStars">
+              <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="slider-arrows">
+              <button class="arrow-btn" id="prevTestiBtn" title="Previous Review"><i class="fa-solid fa-arrow-left"></i></button>
+              <button class="arrow-btn" id="nextTestiBtn" title="Next Review"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="quote-content">
+            <div class="quote-icon">“</div>
+            <p class="quote-text" id="testiQuote">
+              Exploring Munnar tea hills and Alleppey backwater houseboats was a dream come true! The team arranged a comfortable AC vehicle for our group of 8 guests and high-quality stays.
+            </p>
+          </div>
+        </div>
+
+        <!-- Customer Review Typing Form -->
+        <div class="review-form-card">
+          <h3 class="review-form-title">Write Your Review</h3>
+          <p class="review-form-sub">Have you traveled with us? Share your travel experience with future visitors!</p>
+
+          <form id="addReviewForm">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="revName">Your Name</label>
+                <input type="text" id="revName" class="form-input" placeholder="e.g. Ramesh V" required>
+              </div>
+              <div class="form-group">
+                <label for="revLocation">City / State</label>
+                <input type="text" id="revLocation" class="form-input" placeholder="e.g. Chennai, Tamil Nadu">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="revRating">Rating</label>
+                <select id="revRating" class="form-select">
+                  <option value="5">⭐⭐⭐⭐⭐ (5 / 5 Stars - Excellent)</option>
+                  <option value="4">⭐⭐⭐⭐ (4 / 5 Stars - Very Good)</option>
+                  <option value="3">⭐⭐⭐ (3 / 5 Stars - Good)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+              <label for="revText">Your Review Message</label>
+              <textarea id="revText" class="form-textarea" placeholder="Write your experience regarding vehicle comfort, destinations visited, stay quality..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-black-pill">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destination.html">Destinations</a></li>
+            <li><a href="tour.html">Tour Packages</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-col-title">Popular Spots</h4>
+          <ul class="footer-links">
+            <li><a href="destination.html?state=kerala">Munnar Tea Gardens</a></li>
+            <li><a href="destination.html?state=kerala">Alleppey Houseboats</a></li>
+            <li><a href="destination.html?state=tamilnadu">Ooty & Kodaikanal</a></li>
+            <li><a href="destination.html?state=tamilnadu">Madurai & Rameswaram</a></li>
+            <li><a href="destination.html?state=kerala">Varkala & Wayanad</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li><i class="fa-solid fa-phone" style="margin-right:8px;"></i> 7907227256</li>
+            <li><i class="fa-brands fa-whatsapp" style="margin-right:8px; color:#25D366;"></i> 7907227256</li>
+            <li><i class="fa-solid fa-envelope" style="margin-right:8px;"></i> kusreekuttan133@gmail.com</li>
+            <li><i class="fa-solid fa-location-dot" style="margin-right:8px;"></i> Kallingal h, Puthalath road, North kalamassery</li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="newsletter-desc">Subscribe to receive seasonal travel recommendations and tour updates for South India.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to newsletter!');">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Kerala & Tamil Nadu Tours. All rights reserved.</p>
+        <p>Email: kusreekuttan133@gmail.com | Phone: 7907227256</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
