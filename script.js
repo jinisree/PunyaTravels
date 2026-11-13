@@ -125,9 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Load reviews from localStorage or initialReviews
-  let reviews = JSON.parse(localStorage.getItem('kt_customer_reviews')) || initialReviews;
+  // Reviews are stored in Supabase (table: public.reviews, see supabase/reviews.sql).
+  // initialReviews is only shown if Supabase can't be reached.
+  let reviews = initialReviews.slice();
   let currentReviewIndex = 0;
+
+  const db = (window.supabase && window.SUPABASE_URL && window.SUPABASE_PUBLISHABLE_KEY)
+    ? window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_PUBLISHABLE_KEY)
+    : null;
+
+  // Convert a database row into the shape the slider uses
+  function rowToReview(row) {
+    return {
+      id: row.id,
+      name: row.name,
+      role: row.location || 'Happy Traveler',
+      stars: row.rating || 5,
+      quote: row.message
+    };
+  }
 
   const testiName = document.getElementById('testiName');
   const testiRole = document.getElementById('testiRole');
@@ -151,8 +167,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Add a review to the front of the list (skips duplicates).
+  // jumpTo = true shows it immediately; otherwise the visitor keeps their place.
+  function addReviewToList(review, jumpTo) {
+    if (review.id != null && reviews.some(r => r.id === review.id)) return false;
+    reviews.unshift(review);
+    if (jumpTo) {
+      currentReviewIndex = 0;
+    } else {
+      currentReviewIndex += 1;
+    }
+    renderReview(currentReviewIndex);
+    return true;
+  }
+
+  async function loadReviews() {
+    if (!db) return;
+    const { data, error } = await db
+      .from('reviews')
+      .select('id, name, location, rating, message, created_at')
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    if (error) {
+      console.error('Could not load reviews from Supabase:', error.message);
+      return;
+    }
+    if (data && data.length > 0) {
+      reviews = data.map(rowToReview);
+      currentReviewIndex = 0;
+      renderReview(0);
+    }
+  }
+
+  // Live updates: show reviews added by other visitors without a page reload
+  function subscribeToNewReviews() {
+    if (!db) return;
+    db.channel('public:reviews')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'reviews' }, (payload) => {
+        const review = rowToReview(payload.new);
+        if (addReviewToList(review, false)) {
+          showToast(`New review from ${review.name}!`);
+        }
+      })
+      .subscribe();
+  }
+
   if (prevTestiBtn && nextTestiBtn) {
     renderReview(0);
+    loadReviews();
+    subscribeToNewReviews();
 
     prevTestiBtn.addEventListener('click', () => {
       currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
@@ -168,28 +232,56 @@ document.addEventListener('DOMContentLoaded', () => {
   // Submit New Review Typing Form
   const addReviewForm = document.getElementById('addReviewForm');
   if (addReviewForm) {
-    addReviewForm.addEventListener('submit', (e) => {
+    addReviewForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('revName').value.trim();
       const location = document.getElementById('revLocation').value.trim();
       const rating = parseInt(document.getElementById('revRating').value);
       const text = document.getElementById('revText').value.trim();
 
-      if (name && text) {
-        const newReview = {
-          name: name,
-          role: location || 'Happy Traveler',
-          stars: rating || 5,
-          quote: text
-        };
+      if (!name || !text) return;
 
-        reviews.unshift(newReview);
-        localStorage.setItem('kt_customer_reviews', JSON.stringify(reviews));
-        currentReviewIndex = 0;
-        renderReview(0);
-        showToast('🌟 Thank you! Your review has been published.');
-        addReviewForm.reset();
+      if (!db) {
+        showToast('Reviews are unavailable right now. Please try again later.');
+        return;
       }
+
+      const submitBtn = addReviewForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
+
+      const { data, error } = await db
+        .from('reviews')
+        .insert({
+          name: name,
+          location: location || null,
+          rating: rating || 5,
+          message: text
+        })
+        .select('id, name, location, rating, message, created_at')
+        .single();
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Review';
+      }
+
+      if (error) {
+        console.error('Could not save review:', error.message);
+        showToast('Sorry, your review could not be saved. Please try again.');
+        return;
+      }
+
+      const saved = rowToReview(data);
+      if (!addReviewToList(saved, true)) {
+        // Live update already added it; just jump to it
+        currentReviewIndex = Math.max(0, reviews.findIndex(r => r.id === saved.id));
+        renderReview(currentReviewIndex);
+      }
+      showToast('🌟 Thank you! Your review has been published.');
+      addReviewForm.reset();
     });
   }
 
